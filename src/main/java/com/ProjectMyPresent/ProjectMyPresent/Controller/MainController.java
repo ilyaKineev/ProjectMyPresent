@@ -1,15 +1,18 @@
 package com.ProjectMyPresent.ProjectMyPresent.Controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 
-@RestController
+@Controller
 @RequestMapping("/")
 public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home() {
-        return "Home";
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 }
