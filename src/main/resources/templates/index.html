@@ -1,30 +1,43 @@
 <!doctype html>
 <html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyPresent</title>
-</head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 <body>
-<h1>API</h1>
-<h2>Present API</h2>
-<ol>
-    <li><a href="https://mypresentpet.herokuapp.com/present/getall">Получить все подарки</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/present/getbyid/1">Получить подарок по Id</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/present/add">Добавить подарок</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/present/delete/1">Удалить подарки</a></li>
-</ol>
-<h2>Question API</h2>
-<ol>
-    <li><a href="https://mypresentpet.herokuapp.com/question/getall">Получить все вопросы</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/question/getbyid/1">Получить вопрос по Id</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/question/gettop">Получить топ вопросов</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/question/add">Добавить вопрос</a></li>
-    <li><a href="https://mypresentpet.herokuapp.com/question/delete/1">Удалить вопрос</a></li>
-</ol>
-
-
+<div id="fon">
+    <div id="stars">
+        <div id="heading-text">API</div>
+        <div id="subtitle-text">Present API</div>
+        <ol>
+            <li><a href="https://mypresentpet.herokuapp.com/present/getall">Получить все подарки</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/present/getbyid/1">Получить подарок по Id</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/present/add">Добавить подарок</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/present/delete/1">Удалить подарки</a></li>
+        </ol>
+        <div id="subtitle-text">Question API</div>
+        <ol>
+            <li><a href="https://mypresentpet.herokuapp.com/question/getall">Получить все вопросы</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/question/getbyid/1">Получить вопрос по Id</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/question/gettop">Получить топ вопросов</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/question/add">Добавить вопрос</a></li>
+            <li><a href="https://mypresentpet.herokuapp.com/question/delete/1">Удалить вопрос</a></li>
+        </ol>
+        <button id="button-text" th:onclick="'javascript:sayHello(\'hello\')'">Hello</button>
+    </div>
+    <div id="picture">
+        <div id="picture-woman">
+            <img id="fog" th:src="@{css/images/fog.png}" alt="fog"/>
+            <img id="woman" th:src="@{css/images/woman.png}" alt="woman"/>
+            <img id="ball" th:src="@{css/images/ball.png}" alt="ball"/>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/javascript/main.js}"></script>
 </body>
 </html>
