@@ -1,5 +1,5 @@
   //const questionURL = 'http://localhost:8080/question'
-  const URL = 'https://mypresentpet.herokuapp.com'
+  const questionURL = 'https://mypresentpet.herokuapp.com'
 
   function getAllQuestion() {
     const requestURL = questionURL + '/getall';

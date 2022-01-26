@@ -1,5 +1,5 @@
     //const presentURL = 'http://localhost:8080/present'
-    const URL = 'https://mypresentpet.herokuapp.com/present'
+    const presentURL = 'https://mypresentpet.herokuapp.com/present'
 
 
   function getAllPresent() {
