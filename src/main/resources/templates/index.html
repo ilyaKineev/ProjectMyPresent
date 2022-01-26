@@ -13,23 +13,47 @@
 <div id="fon">
     <div id="stars">
         <div id="heading-text">API</div>
-        <div id="subtitle-text">Present API</div>
+        <div>Present API</div>
         <ol>
-            <li><a href="https://mypresentpet.herokuapp.com/present/getall">Получить все подарки</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/present/getbyid/1">Получить подарок по Id</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/present/add">Добавить подарок</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/present/delete/1">Удалить подарки</a></li>
+            <li>
+                <button type="button" class="button-text" id="getAllPresent">Получить все подарки</button>
+            </li>
+            <li>
+                <input type="number" id="getPresentValueId" min="1" max="999" value="1">
+                <button type="button" class="button-text" id="getPresentById">Получить подарок по Id</button>
+            </li>
+            <li>
+                <button type="button" class="button-text" id="addPresent">Добавить подарок</button>
+            </li>
+            <li>
+                <input type="number" id="deletePresentValueId" min="1" max="999" value="1">
+                <button type="button" class="button-text" id="deletePresentById">Удалить подарки</button>
+            </li>
         </ol>
         <div id="subtitle-text">Question API</div>
         <ol>
-            <li><a href="https://mypresentpet.herokuapp.com/question/getall">Получить все вопросы</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/question/getbyid/1">Получить вопрос по Id</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/question/gettop">Получить топ вопросов</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/question/add">Добавить вопрос</a></li>
-            <li><a href="https://mypresentpet.herokuapp.com/question/delete/1">Удалить вопрос</a></li>
+            <li>
+                <button type="button" class="button-text" id="getAllQuestion">Получить все подарки</button>
+            </li>
+            <li>
+                <button type="button" class="button-text" id="getTopQuestion">Получить Топ подарков</button>
+            </li>
+            <li>
+                <input type="number" id="getQuestionValueId" min="1" max="999" value="1">
+                <button type="button" class="button-text" id="getQuestionById">Получить подарок по Id</button>
+            </li>
+            <li>
+                <button type="button" class="button-text" id="addQuestion">Добавить подарок</button>
+
+            </li>
+            <li>
+                <input type="number" id="deleteQuestionValueId" min="1" max="999" value="1">
+                <button type="button" class="button-text" id="deleteQuestionById">Удалить подарки по id</button>
+            </li>
         </ol>
-        <button id="button-text" th:onclick="'javascript:sayHello(\'hello\')'">Hello</button>
+
     </div>
+
     <div id="picture">
         <div id="picture-woman">
             <img id="fog" th:src="@{css/images/fog.png}" alt="fog"/>
@@ -38,6 +62,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" th:src="@{/javascript/main.js}"></script>
+<script type="text/javascript" th:src="@{/javascript/present.js}"></script>
+<script type="text/javascript" th:src="@{/javascript/question.js}"></script>
 </body>
 </html>
