@@ -1,8 +1,8 @@
-const presentURL = 'http://localhost:8080/present';
-//const presentURL = 'https://mypresentpet.herokuapp.com/present';
+//const presentURL = 'http://localhost:8080/present';
+const presentURL = 'https://mypresentpet.herokuapp.com/present';
 
-const questionURL = 'http://localhost:8080/question'
-//const questionURL = 'https://mypresentpet.herokuapp.com/question'
+//const questionURL = 'http://localhost:8080/question'
+const questionURL = 'https://mypresentpet.herokuapp.com/question'
 
 var question;
 
