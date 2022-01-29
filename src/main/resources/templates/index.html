@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,60 +9,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyPresent</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+</head>
 <body>
-<div id="fon">
-    <div id="stars">
-        <div id="heading-text">API</div>
-        <div>Present API</div>
-        <ol>
-            <li>
-                <button type="button" class="button-text" id="getAllPresent">Получить все подарки</button>
-            </li>
-            <li>
-                <input type="number" id="getPresentValueId" min="1" max="999" value="1">
-                <button type="button" class="button-text" id="getPresentById">Получить подарок по Id</button>
-            </li>
-            <li>
-                <button type="button" class="button-text" id="addPresent">Добавить подарок</button>
-            </li>
-            <li>
-                <input type="number" id="deletePresentValueId" min="1" max="999" value="1">
-                <button type="button" class="button-text" id="deletePresentById">Удалить подарки</button>
-            </li>
-        </ol>
-        <div id="subtitle-text">Question API</div>
-        <ol>
-            <li>
-                <button type="button" class="button-text" id="getAllQuestion">Получить все подарки</button>
-            </li>
-            <li>
-                <button type="button" class="button-text" id="getTopQuestion">Получить Топ подарков</button>
-            </li>
-            <li>
-                <input type="number" id="getQuestionValueId" min="1" max="999" value="1">
-                <button type="button" class="button-text" id="getQuestionById">Получить подарок по Id</button>
-            </li>
-            <li>
-                <button type="button" class="button-text" id="addQuestion">Добавить подарок</button>
+    <div id="fon">
+        <div id="stars">
+            <div id="pictureStart">
+                <div id="heading-text">Привет! Я умею читать мысли</div>
+                <div id="subtitle-text">Задумай подарок, а я попробую его угадать</div>
+                <button type="button" class="button-text" id="startGame">Начать игру</button>
+                <img id="fog" th:src="@{css/images/fog.png}" alt="fog"/>
+                <img id="woman" th:src="@{css/images/woman.png}" alt="woman"/>
+                <img id="ball" th:src="@{css/images/ball.png}" alt="ball"/>
+            </div>
 
-            </li>
-            <li>
-                <input type="number" id="deleteQuestionValueId" min="1" max="999" value="1">
-                <button type="button" class="button-text" id="deleteQuestionById">Удалить подарки по id</button>
-            </li>
-        </ol>
+            <div id="gameFon">
+                <img id="womanGame" th:src="@{css/images/woman.png}" alt="woman"/>
+                <div id="polygon"></div>
+                <div id="union"></div>
+                <div id="textQuestion"></div>
+                <button type="button" id="one">Да</button>
+                <button type="button" id="two">Скорее да</button>
+                <button type="button" id="three">Не знаю</button>
+                <button type="button" id="four">Скорее нет</button>
+                <button type="button" id="five">Нет</button>
+            </div>
 
-    </div>
+            <div id="gameFinal">
+                <img id="womanGame" th:src="@{css/images/woman.png}" alt="woman"/>
+                <div id="polygon"></div>
+                <div id="union"></div>
+                <button type="button" class="button-text" id="oneFinal">Да</button>
+                <button type="button" class="button-text" id="fiveFinal">Нет</button>
+                <div id="isTrue">Это компьютер?</div>
+            </div>
 
-    <div id="picture">
-        <div id="picture-woman">
-            <img id="fog" th:src="@{css/images/fog.png}" alt="fog"/>
-            <img id="woman" th:src="@{css/images/woman.png}" alt="woman"/>
-            <img id="ball" th:src="@{css/images/ball.png}" alt="ball"/>
+            <div id="returnGame">
+                <div id="textReturn">Хотите сыграть еще раз?</div>
+                <button type="button" class="button-text" id="returnYes">Да</button>
+                <button type="button" class="button-text" id="returnNo">Нет</button>
+                <div id="rectangle"></div>
+                <img id="present" th:src="@{css/images/present.png}" alt="woman"/>
+                <div id="resultText">Я давно мечтаю о компьютере. Пусть Вселенная меня услышит и исполнит это желание!</div>
+                <div id="tg"></div>
+                <div id="vk"></div>
+                <div id="fb"></div>
+            </div>
+
         </div>
     </div>
-</div>
-<script type="text/javascript" th:src="@{/javascript/present.js}"></script>
-<script type="text/javascript" th:src="@{/javascript/question.js}"></script>
+    <script type="text/javascript" th:src="@{/javascript/main.js}"></script>
 </body>
 </html>
