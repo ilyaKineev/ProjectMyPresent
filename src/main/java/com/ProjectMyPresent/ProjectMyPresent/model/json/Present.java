@@ -11,6 +11,8 @@ public class Present {
     private String name;
     @JsonProperty("questionList")
     private List<Boolean> questionList;
+    @JsonProperty("value")
+    double value;
 
     public Present(Long id, String name, List<Boolean> questionList) {
         this.id = id;
@@ -41,4 +43,12 @@ public class Present {
     public void setQuestionList(List<Boolean> questionList) {
         this.questionList = questionList;
     }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }  
 }

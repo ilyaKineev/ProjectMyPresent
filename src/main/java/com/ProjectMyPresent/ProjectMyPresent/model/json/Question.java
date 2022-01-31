@@ -1,6 +1,7 @@
 package com.ProjectMyPresent.ProjectMyPresent.model.json;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Question {
@@ -10,14 +11,18 @@ public class Question {
     String question;
     @JsonProperty("rating")
     int rating;
+    @JsonProperty("result")
+    int result;
 
     public Question() {
     }
 
-    public Question(long id, String question, int rating) {
+    @JsonCreator
+    public Question(long id, String question, int rating, int result) {
         this.id = id;
         this.question = question;
         this.rating = rating;
+        this.result = result;
     }
 
     public long getId() {
@@ -36,12 +41,17 @@ public class Question {
         this.rating = rating;
     }
 
+
+    public int getResult() {
+        return result;
+    }
+
+    public void setResult(int result) {
+        this.result = result;
+    }
+
     @Override
     public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", name='" + question + '\'' +
-                ", rating=" + rating +
-                '}';
-    }
+        return "Question [id=" + id + ", question=" + question + ", rating=" + rating + ", result=" + result + "]";
+    }    
 }

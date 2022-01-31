@@ -1,6 +1,7 @@
 package com.ProjectMyPresent.ProjectMyPresent.Service;
 
 import com.ProjectMyPresent.ProjectMyPresent.model.json.Present;
+import com.ProjectMyPresent.ProjectMyPresent.model.json.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,5 +48,66 @@ public class PresentService {
     public String deletePresentByID(int id) {
         presentList = presentList.stream().filter(p -> p.getId() != id).collect(Collectors.toList());
         return "successfully";
+    }
+
+    public List<Present> getResultByTopQuestion(List<Question> questions) {
+        List<Present> result = new ArrayList<>();
+        List<Present> newPresentList = presentList;
+        for (Question q : questions) {            
+            switch (q.getResult()) {
+                case (1):
+                for (Present p : newPresentList) {
+                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                        p.setValue(p.getValue() + 1);
+                    }
+                }            
+                break;
+                case (2):
+                for (Present p : newPresentList) {
+                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                        p.setValue(p.getValue() + 0.5);
+                    }
+                }            
+                break;
+                case (3):
+                for (Present p : newPresentList) {
+                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                        p.setValue(p.getValue() + 0);
+                    }
+                }            
+                break;
+                case (4):
+                for (Present p : newPresentList) {
+                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                        p.setValue(p.getValue() + 0.5);
+                    }
+                }            
+                break;
+                case (5):                
+                for (Present p : newPresentList) {
+                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                        p.setValue(p.getValue() + 1);
+                    }
+                }            
+                break;
+                default:
+                for (Present p : newPresentList) {
+                    p.setValue(p.getValue() + 0);
+                }
+                break;
+            }
+        }
+
+        double max = 0;
+
+        for (Present p : newPresentList) {
+            if (p.getValue() > max) max = p.getValue();
+        }
+
+        for (Present p: newPresentList) {
+            if (max == p.getValue()) result.add(p);
+        }
+
+        return result;
     }
 }
