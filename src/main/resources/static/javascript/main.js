@@ -1,22 +1,16 @@
-//const presentURL = 'http://localhost:8080/present';
-const presentURL = 'https://mypresentpet.herokuapp.com/present';
+const presentURL = 'http://localhost:8080/present';
+//const presentURL = 'https://mypresentpet.herokuapp.com/present';
 
-//const questionURL = 'http://localhost:8080/question'
-const questionURL = 'https://mypresentpet.herokuapp.com/question'
+const questionURL = 'http://localhost:8080/question'
+//const questionURL = 'https://mypresentpet.herokuapp.com/question'
 
 var question;
 
 class Question{
-    constructor(id,question,rating){
+    constructor(id,question,rating,result){
         this.id=id;
         this.question=question;
         this.rating=rating;
-    }
-}
-
-class Result{
-    constructor(question,result){
-        this.question=question;
         this.result=result;
     }
 }
@@ -57,9 +51,11 @@ function printQuestionOnScreen(i){
     console.log('Осталось вопросов ' + arrTopQuestion.length);
     if (arrTopQuestion.length === 0 ){
         endGame();
-        arrTopResults.push(new Result(question,i));
+        question.result=i;
+        arrTopResults.push(question);
     } else {
-        arrTopResults.push(new Result(question,i));
+        question.result=i;
+        arrTopResults.push(question);
         question = arrTopQuestion.pop();
         console.log(question.question);
         document.getElementById('textQuestion').innerHTML = '<b>' + question.question +'</b>';
@@ -120,6 +116,10 @@ document.querySelector('#oneFinal').addEventListener('click', () => {
     yes();
 });
 
+document.querySelector('#fiveFinal').addEventListener('click', () => {
+    getResultByTopQuestion();
+});
+
 document.querySelector('#returnYes').addEventListener('click', () => {
     initGame();
 });
@@ -127,6 +127,24 @@ document.querySelector('#returnYes').addEventListener('click', () => {
 document.querySelector('#returnNo').addEventListener('click', () => {
     window.close();
 });
+
+function getResultByTopQuestion(){
+        // URL на который будем отправлять POST запрос
+        const requestURL = presentURL + '/getResultByTopQuestion';
+        let json = JSON.stringify(arrTopResults);
+        var body = json;
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', requestURL);
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        xhr.onload = () => {
+        if (xhr.status !== 200) {
+            return;
+        }
+            console.log(xhr.response);
+        } 
+        console.log(body);
+        xhr.send(body);
+}
 
 function getAllPresent() {
     // URL на который будем отправлять GET запрос

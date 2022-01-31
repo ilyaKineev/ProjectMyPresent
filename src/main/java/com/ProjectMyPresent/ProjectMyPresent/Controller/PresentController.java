@@ -2,15 +2,15 @@ package com.ProjectMyPresent.ProjectMyPresent.Controller;
 
 import com.ProjectMyPresent.ProjectMyPresent.Service.PresentService;
 import com.ProjectMyPresent.ProjectMyPresent.model.json.Present;
+import com.ProjectMyPresent.ProjectMyPresent.model.json.Question;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
-
-
 @RestController
 @RequestMapping("/present")
 public class PresentController {
@@ -37,7 +37,11 @@ public class PresentController {
         return presentService.deletePresentByID(id);
     }
 
-//    public List<Present> getResultByTopQuestion(){
-//        return new ArrayList<Present>();
-//    }
+    @RequestMapping(value = "/getResultByTopQuestion", method = RequestMethod.POST)
+    public List<Present> getResultByTopQuestion(@RequestBody List<Question> questions){
+        for (Question question : questions) {
+            System.out.println(question.toString());
+        }
+        return presentService.getResultByTopQuestion(questions);
+    }
 }

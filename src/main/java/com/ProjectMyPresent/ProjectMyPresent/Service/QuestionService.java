@@ -13,7 +13,7 @@ public class QuestionService {
     {
         questionList = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
-            questionList.add(new Question(i,"Вопрос_" + i, (int)((Math.random()*100))));
+            questionList.add(new Question(i,"Вопрос_" + i, (int)((Math.random()*100)),0));
             lastId=i;
         }
 
@@ -37,7 +37,7 @@ public class QuestionService {
 
     public String addQuestion() {
         lastId++;
-        questionList.add(new Question(lastId,"Вопрос_" + lastId, (int)((Math.random()*100))));
+        questionList.add(new Question(lastId,"Вопрос_" + lastId, (int)((Math.random()*100)),0));
         return "successfully";
     }
 
