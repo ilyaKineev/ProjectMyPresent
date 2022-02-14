@@ -1,7 +1,7 @@
 package com.ProjectMyPresent.ProjectMyPresent.Service;
 
-import com.ProjectMyPresent.ProjectMyPresent.model.json.Present;
-import com.ProjectMyPresent.ProjectMyPresent.model.json.Question;
+import com.ProjectMyPresent.ProjectMyPresent.model.json.JsonPresent;
+import com.ProjectMyPresent.ProjectMyPresent.model.json.JsonQuestion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class PresentService {
 
-    private List<Present> presentList;
+    private List<JsonPresent> presentList;
     private int lastId;
 
     {
@@ -21,17 +21,17 @@ public class PresentService {
                 Random random = new Random();
                 booleanList.add(random.nextBoolean());
             }
-            presentList.add(new Present((long)i,"Present " + i, booleanList));
+            presentList.add(new JsonPresent((long) i, "Present " + i, booleanList));
             lastId = i;
         }
     }
 
-    public List<Present> getAllPresent() {
+    public List<JsonPresent> getAllPresent() {
         return presentList;
     }
 
-    public Present getPresentById(int id) {
-        return presentList.stream().filter(present -> present.getId()==id).collect(Collectors.toList()).get(0);
+    public JsonPresent getPresentById(int id) {
+        return presentList.stream().filter(present -> present.getId() == id).collect(Collectors.toList()).get(0);
     }
 
     public String addPresent() {
@@ -41,7 +41,7 @@ public class PresentService {
             booleanList.add(random.nextBoolean());
         }
         lastId++;
-        presentList.add(new Present((long)lastId,"Present " + (lastId), booleanList));
+        presentList.add(new JsonPresent((long) lastId, "Present " + (lastId), booleanList));
         return "successfully";
     }
 
@@ -50,61 +50,61 @@ public class PresentService {
         return "successfully";
     }
 
-    public List<Present> getResultByTopQuestion(List<Question> questions) {
-        List<Present> result = new ArrayList<>();
-        List<Present> newPresentList = presentList;
-        for (Question q : questions) {            
+    public List<JsonPresent> getResultByTopQuestion(List<JsonQuestion> jsonQuestions) {
+        List<JsonPresent> result = new ArrayList<>();
+        List<JsonPresent> newPresentList = presentList;
+        for (JsonQuestion q : jsonQuestions) {
             switch (q.getResult()) {
                 case (1):
-                for (Present p : newPresentList) {
-                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
-                        p.setValue(p.getValue() + 1);
+                    for (JsonPresent p : newPresentList) {
+                        if (!p.getQuestionList().get((int) q.getId() - 1)) {
+                            p.setValue(p.getValue() + 1);
+                        }
                     }
-                }            
-                break;
+                    break;
                 case (2):
-                for (Present p : newPresentList) {
-                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
-                        p.setValue(p.getValue() + 0.5);
+                    for (JsonPresent p : newPresentList) {
+                        if (!p.getQuestionList().get((int) q.getId() - 1)) {
+                            p.setValue(p.getValue() + 0.5);
+                        }
                     }
-                }            
-                break;
+                    break;
                 case (3):
-                for (Present p : newPresentList) {
-                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
+                    for (JsonPresent p : newPresentList) {
+                        if (!p.getQuestionList().get((int) q.getId() - 1)) {
+                            p.setValue(p.getValue() + 0);
+                        }
+                    }
+                    break;
+                case (4):
+                    for (JsonPresent p : newPresentList) {
+                        if (!p.getQuestionList().get((int) q.getId() - 1)) {
+                            p.setValue(p.getValue() + 0.5);
+                        }
+                    }
+                    break;
+                case (5):
+                    for (JsonPresent p : newPresentList) {
+                        if (!p.getQuestionList().get((int) q.getId() - 1)) {
+                            p.setValue(p.getValue() + 1);
+                        }
+                    }
+                    break;
+                default:
+                    for (JsonPresent p : newPresentList) {
                         p.setValue(p.getValue() + 0);
                     }
-                }            
-                break;
-                case (4):
-                for (Present p : newPresentList) {
-                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
-                        p.setValue(p.getValue() + 0.5);
-                    }
-                }            
-                break;
-                case (5):                
-                for (Present p : newPresentList) {
-                    if (!p.getQuestionList().get((int)q.getId() - 1)) {
-                        p.setValue(p.getValue() + 1);
-                    }
-                }            
-                break;
-                default:
-                for (Present p : newPresentList) {
-                    p.setValue(p.getValue() + 0);
-                }
-                break;
+                    break;
             }
         }
 
         double max = 0;
 
-        for (Present p : newPresentList) {
+        for (JsonPresent p : newPresentList) {
             if (p.getValue() > max) max = p.getValue();
         }
 
-        for (Present p: newPresentList) {
+        for (JsonPresent p : newPresentList) {
             if (max == p.getValue()) result.add(p);
         }
 

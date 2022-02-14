@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class Present {
+public class JsonPresent {
     @JsonProperty("id")
     private Long id;
     @JsonProperty("name")
@@ -14,10 +14,11 @@ public class Present {
     @JsonProperty("value")
     double value;
 
-    public Present(Long id, String name, List<Boolean> questionList) {
+    public JsonPresent(Long id, String name, List<Boolean> questionList) {
         this.id = id;
         this.name = name;
         this.questionList = questionList;
+        this.value = 0;
     }
 
     public Long getId() {

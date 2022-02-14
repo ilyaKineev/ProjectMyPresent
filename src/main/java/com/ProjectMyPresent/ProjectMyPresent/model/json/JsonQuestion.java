@@ -4,7 +4,7 @@ package com.ProjectMyPresent.ProjectMyPresent.model.json;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Question {
+public class JsonQuestion {
     @JsonProperty("id")
     long id;
     @JsonProperty("question")
@@ -14,11 +14,11 @@ public class Question {
     @JsonProperty("result")
     int result;
 
-    public Question() {
+    public JsonQuestion() {
     }
 
     @JsonCreator
-    public Question(long id, String question, int rating, int result) {
+    public JsonQuestion(long id, String question, int rating, int result) {
         this.id = id;
         this.question = question;
         this.rating = rating;

@@ -1,8 +1,8 @@
-const presentURL = 'http://localhost:8080/present';
-//const presentURL = 'https://mypresentpet.herokuapp.com/present';
+//const presentURL = 'http://localhost:8080/present';
+const presentURL = 'https://mypresentpet.herokuapp.com/present';
 
-const questionURL = 'http://localhost:8080/question'
-//const questionURL = 'https://mypresentpet.herokuapp.com/question'
+//const questionURL = 'http://localhost:8080/question'
+const questionURL = 'https://mypresentpet.herokuapp.com/question'
 
 var question;
 
@@ -148,7 +148,7 @@ function getResultByTopQuestion(){
 
 function getAllPresent() {
     // URL на который будем отправлять GET запрос
-    const requestURL = presentURL + '/getall';
+    const requestURL = presentURL + '/all';
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestURL);
     xhr.onload = () => {
@@ -162,7 +162,7 @@ function getAllPresent() {
 
 function getPresentById() {
     const nums = parseInt(document.querySelector('#getPresentValueId').value);
-    const requestURL = presentURL + `/getbyid/${nums}`;
+    const requestURL = presentURL + `/${nums}`;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestURL);
     xhr.onload = function () {
@@ -218,7 +218,7 @@ function deleteById() {
 //});
 
 function getAllQuestion() {
-    const requestURL = questionURL + '/getall';
+    const requestURL = questionURL + '/all';
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestURL);
     xhr.onload = () => {
@@ -231,7 +231,7 @@ function getAllQuestion() {
 }
 
 function getTopQuestion() {
-    const requestURL = questionURL + '/gettop';
+    const requestURL = questionURL + '/top';
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestURL);
       xhr.responseType = "json";
@@ -248,7 +248,7 @@ function getTopQuestion() {
 
 function getQuestionById() {
     const nums = parseInt(document.querySelector('#getQuestionValueId').value);
-    const requestURL = questionURL + `/getbyid/${nums}`;
+    const requestURL = questionURL + `/${nums}`;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestURL);
     xhr.onload = function () {
